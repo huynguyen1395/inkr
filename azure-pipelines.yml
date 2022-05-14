@@ -2,7 +2,7 @@ trigger:
 - main
 
 jobs:
-- job: 'Test'
+- job: 'Pineline Robotframework'
   pool:
     vmImage: 'windows-2022'
   strategy:
@@ -27,7 +27,7 @@ jobs:
   
   - task: PublishTestResults@2
     inputs:
-      testResultsFiles: output.xml
+      testResultsFiles: 'output.xml'
       searchFolder: 'D:\a\1\s\'
       condition: succeededOrFailed()
       displayName: 'Publish Test Results output.xml'
