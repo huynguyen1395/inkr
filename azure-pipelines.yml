@@ -17,7 +17,7 @@ jobs:
       architecture: 'x64'
     displayName: 'Use Python $(python.version)'
 
-  - script: |
+  - script:
       pip install robotframework robotframework-selenium2library
     displayName: 'Install dependencies'
 
