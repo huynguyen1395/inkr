@@ -8,4 +8,4 @@ Test Teardown   Close All Browsers
 
 *** Test Cases ***
 TC001_Search_Reading_List_By_Search_Text_Category_Release_Status_And_Age
-    Search And Filter Reading List    baby    manga    completed    teen
+    Search And Filter Reading List    girl    manga    completed    teen
