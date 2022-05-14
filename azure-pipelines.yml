@@ -22,11 +22,11 @@ jobs:
     displayName: 'Install dependencies'
 
   - powershell: robot -d result test
+    continueOnError: true
     displayName: 'Run testcase inkr'
   
   - task: PublishTestResults@2
+    displayName: 'Publish Test Results'
+    continueOnError: true
     inputs:
       testResultsFiles: outputxunit.xml
-      searchFolder: '/Users/runner/work/1/s/'
-      condition: succeededOrFailed()
-      displayName: 'Publish Test Results outputxunit.xml'
