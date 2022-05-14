@@ -2,7 +2,7 @@ trigger:
 - main
 
 jobs:
-- job: 'Pineline Robotframework'
+- job: 'Pineline_Robotframework'
   pool:
     vmImage: 'windows-2022'
   strategy:
