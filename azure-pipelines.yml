@@ -9,6 +9,7 @@ jobs:
     matrix:
       Python38:
         python.version: '3.8'
+    maxParallel: 1
 
   steps:
   - task: UsePythonVersion@0
@@ -21,13 +22,11 @@ jobs:
       pip install robotframework robotframework-selenium2library
     displayName: 'Install dependencies'
 
-  - powershell: robot test
+  - powershell: robot --pythonpath . -x log.html test
     continueOnError: true
     displayName: 'Run testcase inkr'
   
   - task: PublishTestResults@2
     inputs:
-      testResultsFiles: 'output.xml'
+      testResultsFiles: log.html
       searchFolder: 'D:\a\1\s\'
-      condition: succeededOrFailed()
-      displayName: 'Publish Test Results output.xml'
