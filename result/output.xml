@@ -1,830 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0 (Python 3.8.7 on win32)" generated="20220515 11:02:13.411" rpa="false" schemaversion="3">
-<suite id="s1" name="Test" source="D:\New folder (4)\inkr\test">
-<suite id="s1-s1" name="Test Search Reading List Suite" source="D:\New folder (4)\inkr\test\test_search_reading_list_suite.robot">
-<test id="s1-s1-t1" name="TC001_Search_Reading_List_By_Genre_Category_Release_Status_And_Age" line="10">
-<kw name="Login To Application" library="login_page" type="SETUP">
+<robot generator="Robot 5.0 (Python 3.8.7 on win32)" generated="20220515 11:26:11.450" rpa="false" schemaversion="3">
+<suite id="s1" name="Test Login Free Account" source="D:\inkr\test\test_login_free_account.robot">
+<test id="s1-t1" name="TC001_Test_Login_With_Free_Acount" line="9">
+<kw name="Login To Application" library="login_page">
 <kw name="Open Web Application" library="common">
 <kw name="Join Path" library="OperatingSystem">
 <var>${path}</var>
-<arg>D:\\New folder (4)\\inkr\\page</arg>
+<arg>D:\\inkr\\page</arg>
 <arg>../test/webdriver/chromedriver.exe</arg>
 <doc>Joins the given path part(s) to the given base path.</doc>
-<msg timestamp="20220515 11:02:13.626" level="INFO">${path} = D:\New folder (4)\inkr\test\webdriver\chromedriver.exe</msg>
-<status status="PASS" starttime="20220515 11:02:13.625" endtime="20220515 11:02:13.626"/>
+<msg timestamp="20220515 11:26:11.651" level="INFO">${path} = D:\inkr\test\webdriver\chromedriver.exe</msg>
+<status status="PASS" starttime="20220515 11:26:11.650" endtime="20220515 11:26:11.651"/>
 </kw>
 <kw name="Create Webdriver" library="Selenium2Library">
 <arg>Chrome</arg>
 <arg>executable_path=${path}</arg>
 <doc>Creates an instance of Selenium WebDriver.</doc>
-<msg timestamp="20220515 11:02:13.626" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
-<status status="PASS" starttime="20220515 11:02:13.626" endtime="20220515 11:02:14.948"/>
+<msg timestamp="20220515 11:26:11.651" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20220515 11:26:11.651" endtime="20220515 11:26:12.897"/>
 </kw>
 <kw name="Go To" library="Selenium2Library">
 <arg>${url}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20220515 11:02:14.949" level="INFO">Opening url 'https://inkr.com'</msg>
-<status status="PASS" starttime="20220515 11:02:14.948" endtime="20220515 11:02:17.239"/>
+<msg timestamp="20220515 11:26:12.898" level="INFO">Opening url 'https://inkr.com'</msg>
+<status status="PASS" starttime="20220515 11:26:12.897" endtime="20220515 11:26:14.874"/>
 </kw>
 <kw name="Maximize Browser Window" library="Selenium2Library">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20220515 11:02:17.240" endtime="20220515 11:02:17.384"/>
+<status status="PASS" starttime="20220515 11:26:14.874" endtime="20220515 11:26:15.020"/>
 </kw>
-<status status="PASS" starttime="20220515 11:02:13.625" endtime="20220515 11:02:17.384"/>
+<status status="PASS" starttime="20220515 11:26:11.650" endtime="20220515 11:26:15.020"/>
 </kw>
-<status status="PASS" starttime="20220515 11:02:13.625" endtime="20220515 11:02:17.384"/>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${btn_signin}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220515 11:26:15.020" endtime="20220515 11:26:15.058"/>
 </kw>
-<kw name="Search And Filter Reading List" library="search_and_filter_page">
-<arg>girl</arg>
-<arg>manga</arg>
-<arg>completed</arg>
-<arg>teen</arg>
-<kw name="Replace String" library="String">
-<var>${search_url}</var>
-<arg>${search_url_locator}</arg>
-<arg>{search_text}</arg>
-<arg>${search_text_param}</arg>
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20220515 11:02:17.386" level="INFO">${search_url} = https://inkr.com/search?text=girl</msg>
-<status status="PASS" starttime="20220515 11:02:17.386" endtime="20220515 11:02:17.386"/>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_signin}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220515 11:26:15.059" level="INFO">Clicking element '//span[contains(text(), 'Sign in')]'.</msg>
+<status status="PASS" starttime="20220515 11:26:15.058" endtime="20220515 11:26:15.206"/>
 </kw>
-<kw name="Go To" library="Selenium2Library">
-<arg>${search_url}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20220515 11:02:17.386" level="INFO">Opening url 'https://inkr.com/search?text=girl'</msg>
-<status status="PASS" starttime="20220515 11:02:17.386" endtime="20220515 11:02:18.790"/>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${email_edit_text}</arg>
+<arg>${email}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220515 11:26:15.208" level="INFO">Typing text 'quochuy13se02@gmail.com' into text field '//input[@type='email']'.</msg>
+<status status="PASS" starttime="20220515 11:26:15.207" endtime="20220515 11:26:17.579"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_continue}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220515 11:26:17.579" level="INFO">Clicking element '//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20220515 11:26:17.579" endtime="20220515 11:26:17.646"/>
+</kw>
+<kw name="Wait Until Page Contains Element" library="Selenium2Library">
+<arg>${password_edit_text}</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20220515 11:26:17.646" endtime="20220515 11:26:18.547"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>${password_edit_text}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220515 11:26:18.547" level="INFO">Typing text 'inkr$1395$' into text field '//input[@type='password']'.</msg>
+<status status="PASS" starttime="20220515 11:26:18.547" endtime="20220515 11:26:18.620"/>
+</kw>
+<kw name="Click Element" library="Selenium2Library">
+<arg>${btn_login}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20220515 11:26:18.621" level="INFO">Clicking element '//span[contains(text(), 'Login')]'.</msg>
+<status status="PASS" starttime="20220515 11:26:18.621" endtime="20220515 11:26:18.664"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>2s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20220515 11:02:20.795" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20220515 11:02:18.790" endtime="20220515 11:02:20.795"/>
+<msg timestamp="20220515 11:26:20.667" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20220515 11:26:18.664" endtime="20220515 11:26:20.667"/>
 </kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${status}</var>
-<arg>Page Should Contain Element</arg>
-<arg>${btn_turn_off_notification}</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" starttime="20220515 11:26:11.650" endtime="20220515 11:26:20.667"/>
+</kw>
 <kw name="Page Should Contain Element" library="Selenium2Library">
-<arg>${btn_turn_off_notification}</arg>
+<arg>${icon_user}</arg>
 <doc>Verifies that element ``locator`` is found on the current page.</doc>
-<msg timestamp="20220515 11:02:21.241" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20220515 11:02:21.242" level="FAIL">Page should have contained element '//span[contains(text(), "Not now")]' but did not.</msg>
-<status status="FAIL" starttime="20220515 11:02:20.797" endtime="20220515 11:02:21.243"/>
-</kw>
-<msg timestamp="20220515 11:02:21.243" level="INFO">${status} = False</msg>
-<status status="PASS" starttime="20220515 11:02:20.795" endtime="20220515 11:02:21.243"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<arg>'${status}'=='True'</arg>
-<arg>Click Element</arg>
-<arg>${btn_turn_off_notification}</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20220515 11:02:21.243" endtime="20220515 11:02:21.243"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${manga_filter_locator}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20220515 11:02:21.243" endtime="20220515 11:02:21.269"/>
-</kw>
-<kw name="Choose Filter Option" library="search_and_filter_page">
-<arg>${category}</arg>
-<arg>${release_status}</arg>
-<arg>${age}</arg>
-<kw name="Create List" library="BuiltIn">
-<var>@{list_filter}</var>
-<arg>${filter_01}</arg>
-<arg>${filer_02}</arg>
-<arg>${filter_03}</arg>
-<doc>Returns a list containing given items.</doc>
-<msg timestamp="20220515 11:02:21.270" level="INFO">@{list_filter} = [ manga | completed | teen ]</msg>
-<status status="PASS" starttime="20220515 11:02:21.269" endtime="20220515 11:02:21.270"/>
-</kw>
-<for flavor="IN">
-<var>${filter}</var>
-<value>@{list_filter}</value>
-<iter>
-<var name="${filter}">manga</var>
-<kw name="Replace String" library="String">
-<var>${locator_filter_param}</var>
-<arg>${filter_param_locator}</arg>
-<arg>{filter_param}</arg>
-<arg>${filter}</arg>
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20220515 11:02:21.270" level="INFO">${locator_filter_param} = //input[@value="manga"]</msg>
-<status status="PASS" starttime="20220515 11:02:21.270" endtime="20220515 11:02:21.270"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator_filter_param}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20220515 11:02:21.270" endtime="20220515 11:02:21.291"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator_filter_param}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220515 11:02:21.291" level="INFO">Clicking element '//input[@value="manga"]'.</msg>
-<status status="PASS" starttime="20220515 11:02:21.291" endtime="20220515 11:02:21.495"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:21.270" endtime="20220515 11:02:21.495"/>
-</iter>
-<iter>
-<var name="${filter}">completed</var>
-<kw name="Replace String" library="String">
-<var>${locator_filter_param}</var>
-<arg>${filter_param_locator}</arg>
-<arg>{filter_param}</arg>
-<arg>${filter}</arg>
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20220515 11:02:21.496" level="INFO">${locator_filter_param} = //input[@value="completed"]</msg>
-<status status="PASS" starttime="20220515 11:02:21.495" endtime="20220515 11:02:21.496"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator_filter_param}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20220515 11:02:21.496" endtime="20220515 11:02:21.687"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator_filter_param}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220515 11:02:21.687" level="INFO">Clicking element '//input[@value="completed"]'.</msg>
-<status status="PASS" starttime="20220515 11:02:21.687" endtime="20220515 11:02:21.857"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:21.495" endtime="20220515 11:02:21.857"/>
-</iter>
-<iter>
-<var name="${filter}">teen</var>
-<kw name="Replace String" library="String">
-<var>${locator_filter_param}</var>
-<arg>${filter_param_locator}</arg>
-<arg>{filter_param}</arg>
-<arg>${filter}</arg>
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20220515 11:02:21.858" level="INFO">${locator_filter_param} = //input[@value="teen"]</msg>
-<status status="PASS" starttime="20220515 11:02:21.858" endtime="20220515 11:02:21.858"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${locator_filter_param}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20220515 11:02:21.858" endtime="20220515 11:02:21.914"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${locator_filter_param}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220515 11:02:21.914" level="INFO">Clicking element '//input[@value="teen"]'.</msg>
-<status status="PASS" starttime="20220515 11:02:21.914" endtime="20220515 11:02:22.081"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:21.857" endtime="20220515 11:02:22.081"/>
-</iter>
-<status status="PASS" starttime="20220515 11:02:21.270" endtime="20220515 11:02:22.081"/>
-</for>
-<status status="PASS" starttime="20220515 11:02:21.269" endtime="20220515 11:02:22.082"/>
-</kw>
-<kw name="Get Information Of Book" library="search_and_filter_page">
-<var>${list_information}</var>
-<kw name="Get Element Count" library="Selenium2Library">
-<var>${count}</var>
-<arg>${count_reading_list_locator}</arg>
-<doc>Returns the number of elements matching ``locator``.</doc>
-<msg timestamp="20220515 11:02:22.147" level="INFO">${count} = 50</msg>
-<status status="PASS" starttime="20220515 11:02:22.083" endtime="20220515 11:02:22.147"/>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<var>${listIndex}</var>
-<doc>Returns a list containing given items.</doc>
-<msg timestamp="20220515 11:02:22.148" level="INFO">${listIndex} = []</msg>
-<status status="PASS" starttime="20220515 11:02:22.148" endtime="20220515 11:02:22.148"/>
-</kw>
-<for flavor="IN RANGE">
-<var>${index}</var>
-<value>${count}</value>
-<iter>
-<var name="${index}">0</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.148" endtime="20220515 11:02:22.149"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.148" endtime="20220515 11:02:22.149"/>
-</iter>
-<iter>
-<var name="${index}">1</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.149" endtime="20220515 11:02:22.149"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.149" endtime="20220515 11:02:22.149"/>
-</iter>
-<iter>
-<var name="${index}">2</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.149" endtime="20220515 11:02:22.150"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.149" endtime="20220515 11:02:22.150"/>
-</iter>
-<iter>
-<var name="${index}">3</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.150" endtime="20220515 11:02:22.150"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.150" endtime="20220515 11:02:22.150"/>
-</iter>
-<iter>
-<var name="${index}">4</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.150" endtime="20220515 11:02:22.151"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.150" endtime="20220515 11:02:22.151"/>
-</iter>
-<iter>
-<var name="${index}">5</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.151" endtime="20220515 11:02:22.151"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.151" endtime="20220515 11:02:22.151"/>
-</iter>
-<iter>
-<var name="${index}">6</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.151" endtime="20220515 11:02:22.152"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.151" endtime="20220515 11:02:22.152"/>
-</iter>
-<iter>
-<var name="${index}">7</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.152" endtime="20220515 11:02:22.152"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.152" endtime="20220515 11:02:22.152"/>
-</iter>
-<iter>
-<var name="${index}">8</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.152" endtime="20220515 11:02:22.152"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.152" endtime="20220515 11:02:22.152"/>
-</iter>
-<iter>
-<var name="${index}">9</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.153" endtime="20220515 11:02:22.153"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.152" endtime="20220515 11:02:22.153"/>
-</iter>
-<iter>
-<var name="${index}">10</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.153" endtime="20220515 11:02:22.153"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.153" endtime="20220515 11:02:22.154"/>
-</iter>
-<iter>
-<var name="${index}">11</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.154" endtime="20220515 11:02:22.154"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.154" endtime="20220515 11:02:22.154"/>
-</iter>
-<iter>
-<var name="${index}">12</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.154" endtime="20220515 11:02:22.154"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.154" endtime="20220515 11:02:22.154"/>
-</iter>
-<iter>
-<var name="${index}">13</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.155" endtime="20220515 11:02:22.155"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.154" endtime="20220515 11:02:22.155"/>
-</iter>
-<iter>
-<var name="${index}">14</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.156" endtime="20220515 11:02:22.156"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.155" endtime="20220515 11:02:22.156"/>
-</iter>
-<iter>
-<var name="${index}">15</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.157" endtime="20220515 11:02:22.157"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.156" endtime="20220515 11:02:22.157"/>
-</iter>
-<iter>
-<var name="${index}">16</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.158" endtime="20220515 11:02:22.159"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.158" endtime="20220515 11:02:22.159"/>
-</iter>
-<iter>
-<var name="${index}">17</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.159" endtime="20220515 11:02:22.159"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.159" endtime="20220515 11:02:22.160"/>
-</iter>
-<iter>
-<var name="${index}">18</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.160" endtime="20220515 11:02:22.160"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.160" endtime="20220515 11:02:22.160"/>
-</iter>
-<iter>
-<var name="${index}">19</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.160" endtime="20220515 11:02:22.160"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.160" endtime="20220515 11:02:22.160"/>
-</iter>
-<iter>
-<var name="${index}">20</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.160" endtime="20220515 11:02:22.161"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.160" endtime="20220515 11:02:22.161"/>
-</iter>
-<iter>
-<var name="${index}">21</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.161" endtime="20220515 11:02:22.161"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.161" endtime="20220515 11:02:22.161"/>
-</iter>
-<iter>
-<var name="${index}">22</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.161" endtime="20220515 11:02:22.161"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.161" endtime="20220515 11:02:22.161"/>
-</iter>
-<iter>
-<var name="${index}">23</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.162" endtime="20220515 11:02:22.162"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.162" endtime="20220515 11:02:22.162"/>
-</iter>
-<iter>
-<var name="${index}">24</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.162" endtime="20220515 11:02:22.162"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.162" endtime="20220515 11:02:22.162"/>
-</iter>
-<iter>
-<var name="${index}">25</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.162" endtime="20220515 11:02:22.163"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.162" endtime="20220515 11:02:22.163"/>
-</iter>
-<iter>
-<var name="${index}">26</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.163" endtime="20220515 11:02:22.163"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.163" endtime="20220515 11:02:22.163"/>
-</iter>
-<iter>
-<var name="${index}">27</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.163" endtime="20220515 11:02:22.163"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.163" endtime="20220515 11:02:22.163"/>
-</iter>
-<iter>
-<var name="${index}">28</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.164" endtime="20220515 11:02:22.164"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.164" endtime="20220515 11:02:22.164"/>
-</iter>
-<iter>
-<var name="${index}">29</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.164" endtime="20220515 11:02:22.164"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.164" endtime="20220515 11:02:22.164"/>
-</iter>
-<iter>
-<var name="${index}">30</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.164" endtime="20220515 11:02:22.165"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.164" endtime="20220515 11:02:22.165"/>
-</iter>
-<iter>
-<var name="${index}">31</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.165" endtime="20220515 11:02:22.165"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.165" endtime="20220515 11:02:22.165"/>
-</iter>
-<iter>
-<var name="${index}">32</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.165" endtime="20220515 11:02:22.166"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.165" endtime="20220515 11:02:22.166"/>
-</iter>
-<iter>
-<var name="${index}">33</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.166" endtime="20220515 11:02:22.166"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.166" endtime="20220515 11:02:22.166"/>
-</iter>
-<iter>
-<var name="${index}">34</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.167" endtime="20220515 11:02:22.167"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.166" endtime="20220515 11:02:22.167"/>
-</iter>
-<iter>
-<var name="${index}">35</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.167" endtime="20220515 11:02:22.167"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.167" endtime="20220515 11:02:22.167"/>
-</iter>
-<iter>
-<var name="${index}">36</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.167" endtime="20220515 11:02:22.168"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.167" endtime="20220515 11:02:22.168"/>
-</iter>
-<iter>
-<var name="${index}">37</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.168" endtime="20220515 11:02:22.168"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.168" endtime="20220515 11:02:22.168"/>
-</iter>
-<iter>
-<var name="${index}">38</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.168" endtime="20220515 11:02:22.169"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.168" endtime="20220515 11:02:22.169"/>
-</iter>
-<iter>
-<var name="${index}">39</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.169" endtime="20220515 11:02:22.169"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.169" endtime="20220515 11:02:22.169"/>
-</iter>
-<iter>
-<var name="${index}">40</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.169" endtime="20220515 11:02:22.169"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.169" endtime="20220515 11:02:22.169"/>
-</iter>
-<iter>
-<var name="${index}">41</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.170" endtime="20220515 11:02:22.170"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.169" endtime="20220515 11:02:22.170"/>
-</iter>
-<iter>
-<var name="${index}">42</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.170" endtime="20220515 11:02:22.170"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.170" endtime="20220515 11:02:22.170"/>
-</iter>
-<iter>
-<var name="${index}">43</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.170" endtime="20220515 11:02:22.171"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.170" endtime="20220515 11:02:22.171"/>
-</iter>
-<iter>
-<var name="${index}">44</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.171" endtime="20220515 11:02:22.171"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.171" endtime="20220515 11:02:22.171"/>
-</iter>
-<iter>
-<var name="${index}">45</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.171" endtime="20220515 11:02:22.172"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.171" endtime="20220515 11:02:22.172"/>
-</iter>
-<iter>
-<var name="${index}">46</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.172" endtime="20220515 11:02:22.173"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.172" endtime="20220515 11:02:22.173"/>
-</iter>
-<iter>
-<var name="${index}">47</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.173" endtime="20220515 11:02:22.174"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.173" endtime="20220515 11:02:22.174"/>
-</iter>
-<iter>
-<var name="${index}">48</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.174" endtime="20220515 11:02:22.175"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.174" endtime="20220515 11:02:22.175"/>
-</iter>
-<iter>
-<var name="${index}">49</var>
-<kw name="Append To List" library="Collections">
-<arg>${listIndex}</arg>
-<arg>${index}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20220515 11:02:22.175" endtime="20220515 11:02:22.176"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:22.175" endtime="20220515 11:02:22.176"/>
-</iter>
-<status status="PASS" starttime="20220515 11:02:22.148" endtime="20220515 11:02:22.176"/>
-</for>
-<kw name="Evaluate" library="BuiltIn">
-<var>${value}</var>
-<arg>random.choice(${listIndex})</arg>
-<arg>random</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20220515 11:02:22.177" level="INFO">${value} = 18</msg>
-<status status="PASS" starttime="20220515 11:02:22.176" endtime="20220515 11:02:22.177"/>
-</kw>
-<kw name="Replace String" library="String">
-<var>${book}</var>
-<arg>${book_locator}</arg>
-<arg>{index}</arg>
-<arg>'${value}'</arg>
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20220515 11:02:22.177" level="INFO">${book} = //div[@class="ant-row"]/div['18']</msg>
-<status status="PASS" starttime="20220515 11:02:22.177" endtime="20220515 11:02:22.178"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${book}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20220515 11:02:22.178" endtime="20220515 11:02:22.212"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${book}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220515 11:02:22.212" level="INFO">Clicking element '//div[@class="ant-row"]/div['18']'.</msg>
-<status status="PASS" starttime="20220515 11:02:22.212" endtime="20220515 11:02:22.355"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2s</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20220515 11:02:24.358" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20220515 11:02:22.356" endtime="20220515 11:02:24.358"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${release_status_locator}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20220515 11:02:24.359" endtime="20220515 11:02:24.428"/>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<var>${release_status_text}</var>
-<arg>${release_status_locator}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20220515 11:02:24.454" level="INFO">${release_status_text} = Completed</msg>
-<status status="PASS" starttime="20220515 11:02:24.428" endtime="20220515 11:02:24.454"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
-<arg>${show_more_locator}</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="PASS" starttime="20220515 11:02:24.454" endtime="20220515 11:02:24.480"/>
-</kw>
-<kw name="Click Element" library="Selenium2Library">
-<arg>${show_more_locator}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20220515 11:02:24.480" level="INFO">Clicking element '//span[contains(text(), 'Show More')]'.</msg>
-<status status="PASS" starttime="20220515 11:02:24.480" endtime="20220515 11:02:24.542"/>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<var>${age_text}</var>
-<arg>${age_information_locator}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20220515 11:02:24.576" level="INFO">${age_text} = Age Rating
-:
-Teen (13+)</msg>
-<status status="PASS" starttime="20220515 11:02:24.542" endtime="20220515 11:02:24.576"/>
-</kw>
-<kw name="Get Text" library="Selenium2Library">
-<var>${category_text}</var>
-<arg>${style_origin_locator}</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20220515 11:02:24.608" level="INFO">${category_text} = Style Origin
-:
-Japanese Comics (Manga)</msg>
-<status status="PASS" starttime="20220515 11:02:24.576" endtime="20220515 11:02:24.608"/>
-</kw>
-<kw name="Create List" library="BuiltIn">
-<var>@{list_information}</var>
-<arg>${category_text}</arg>
-<arg>${release_status_text}</arg>
-<arg>${age_text}</arg>
-<doc>Returns a list containing given items.</doc>
-<msg timestamp="20220515 11:02:24.609" level="INFO">@{list_information} = [ Style Origin
-:
-Japanese Comics (Manga) | Completed | Age Rating
-:
-Teen (13+) ]</msg>
-<status status="PASS" starttime="20220515 11:02:24.609" endtime="20220515 11:02:24.609"/>
-</kw>
-<msg timestamp="20220515 11:02:24.609" level="INFO">${list_information} = ['Style Origin\n:\nJapanese Comics (Manga)', 'Completed', 'Age Rating\n:\nTeen (13+)']</msg>
-<status status="PASS" starttime="20220515 11:02:22.082" endtime="20220515 11:02:24.609"/>
-</kw>
-<kw name="Log" library="BuiltIn">
-<arg>${list_information}</arg>
-<doc>Logs the given message with the given level.</doc>
-<msg timestamp="20220515 11:02:24.609" level="INFO">['Style Origin\n:\nJapanese Comics (Manga)', 'Completed', 'Age Rating\n:\nTeen (13+)']</msg>
-<status status="PASS" starttime="20220515 11:02:24.609" endtime="20220515 11:02:24.609"/>
-</kw>
-<kw name="Should Contain" library="BuiltIn">
-<arg>${list_information}[0]</arg>
-<arg>Manga</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20220515 11:02:24.610" endtime="20220515 11:02:24.610"/>
-</kw>
-<kw name="Should Contain" library="BuiltIn">
-<arg>${list_information}[1]</arg>
-<arg>Completed</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20220515 11:02:24.610" endtime="20220515 11:02:24.610"/>
-</kw>
-<kw name="Should Contain" library="BuiltIn">
-<arg>${list_information}[2]</arg>
-<arg>Teen</arg>
-<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20220515 11:02:24.610" endtime="20220515 11:02:24.610"/>
-</kw>
-<status status="PASS" starttime="20220515 11:02:17.385" endtime="20220515 11:02:24.610"/>
+<msg timestamp="20220515 11:26:20.691" level="INFO">Current page contains element '//span[@class="anticon anticon-user"]'.</msg>
+<status status="PASS" starttime="20220515 11:26:20.668" endtime="20220515 11:26:20.691"/>
 </kw>
 <kw name="Close All Browsers" library="Selenium2Library" type="TEARDOWN">
 <doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20220515 11:02:24.611" endtime="20220515 11:02:26.749"/>
+<status status="PASS" starttime="20220515 11:26:20.691" endtime="20220515 11:26:22.874"/>
 </kw>
-<status status="PASS" starttime="20220515 11:02:13.624" endtime="20220515 11:02:26.750"/>
+<status status="PASS" starttime="20220515 11:26:11.649" endtime="20220515 11:26:22.875"/>
 </test>
-<status status="PASS" starttime="20220515 11:02:13.432" endtime="20220515 11:02:26.755"/>
-</suite>
-<status status="PASS" starttime="20220515 11:02:13.413" endtime="20220515 11:02:26.761"/>
+<status status="PASS" starttime="20220515 11:26:11.451" endtime="20220515 11:26:22.880"/>
 </suite>
 <statistics>
 <total>
@@ -833,8 +102,7 @@ Teen (13+) ]</msg>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Test">Test</stat>
-<stat pass="1" fail="0" skip="0" id="s1-s1" name="Test Search Reading List Suite">Test.Test Search Reading List Suite</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test Login Free Account">Test Login Free Account</stat>
 </suite>
 </statistics>
 <errors>
