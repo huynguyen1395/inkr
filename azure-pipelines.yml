@@ -22,7 +22,7 @@ jobs:
       pip install robotframework robotframework-selenium2library
     displayName: 'Install dependencies'
 
-  - powershell: robot --pythonpath . -x outputxunit.xml test
+  - powershell: robot --pythonpath . -x outputxunit.xml .\test\test_login_free_account.robot
     continueOnError: true
     displayName: 'Run testcase inkr'
   
