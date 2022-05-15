@@ -14,6 +14,6 @@ Login To Application
     Wait Until Page Contains Element    ${password_edit_text}
     Input Text    ${password_edit_text}     ${password}
     Click Element    ${btn_login}
-    Sleep    1s
+    Sleep    2s
 
 

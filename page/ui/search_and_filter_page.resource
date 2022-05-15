@@ -15,7 +15,7 @@ Search And Filter Reading List
    # Close popup notification
    Run Keyword If    '${status}'=='True'
    ...    Click Element    ${btn_turn_off_notification}
-   Wait Until Page Contains Element    ${manga_filter_locator}
+   Wait Until Element Is Enabled    ${manga_filter_locator}
    # Filter with multiple param
    Choose Filter Option    ${category}    ${release_status}     ${age}
    ${list_information}      Get Information Of Book
@@ -30,8 +30,8 @@ Choose Filter Option
     @{list_filter}  Create List      ${filter_01}    ${filer_02}     ${filter_03}
     FOR    ${filter}    IN    @{list_filter}
         ${locator_filter_param}    Replace String    ${filter_param_locator}   {filter_param}  ${filter}
+        Wait Until Element Is Enabled    ${locator_filter_param}
         Click Element    ${locator_filter_param}
-        Sleep    1s
     END
 
 Get Information Of Book
@@ -42,9 +42,12 @@ Get Information Of Book
    END
    ${value}  Evaluate  random.choice(${listIndex})  random
    ${book}  Replace String    ${book_locator}    {index}    '${value}'
+   Wait Until Element Is Enabled    ${book}
    Click Element    ${book}
    Sleep    2s
+   Wait Until Element Is Enabled    ${release_status_locator}
    ${release_status_text}   Get Text    ${release_status_locator}
+   Wait Until Element Is Enabled    ${show_more_locator}
    Click Element    ${show_more_locator}
    ${age_text}  Get Text    ${age_information_locator}
    ${category_text}  Get Text    ${style_origin_locator}
