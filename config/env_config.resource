@@ -1,3 +1,3 @@
 *** Variables ***
-${url}    https://inkr.com
+${url}    https://coinmarketcap.com/
 

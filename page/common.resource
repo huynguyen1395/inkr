@@ -7,7 +7,8 @@ Resource    ../config/env_config.resource
 
 *** Keywords ***
 Open Web Application
-    ${path}     Join Path    ${CURDIR}      ../test/webdriver/chromedriver.exe
-    Create Webdriver    Chrome    executable_path=${path}
+#    ${path}     Join Path    ${CURDIR}      ../test/webdriver/chrome-win64
+#    executable_path=${path}
+    Create Webdriver    Chrome
     Go To   ${url}
     Maximize Browser Window
