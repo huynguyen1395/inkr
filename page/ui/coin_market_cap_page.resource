@@ -42,7 +42,7 @@ Get list 10 rows
         Open Excel Document    ${path}      1
         Get Sheet   Report
         Write Excel Row    ${index_str}    ${list}
-        Save Excel Document    ${save_path}
+        Save Excel Document    ${path}
         Close Current Excel Document
     END
 
