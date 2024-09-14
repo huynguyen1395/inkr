@@ -18,6 +18,7 @@ Get list 10 rows
 #    Sleep    2s
 
     ${path}     Join Path    ${CURDIR}      ../../file/Report.xlsx
+    ${save_path}     Join Path    ${CURDIR}      ../../result/Report.xlsx
 
 
     FOR     ${index}    IN RANGE    10
@@ -41,7 +42,7 @@ Get list 10 rows
         Open Excel Document    ${path}      1
         Get Sheet   Report
         Write Excel Row    ${index_str}    ${list}
-        Save Excel Document    ${path}
+        Save Excel Document    ${save_path}
         Close Current Excel Document
     END
 
