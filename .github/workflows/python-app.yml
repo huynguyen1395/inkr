@@ -35,7 +35,7 @@ jobs:
         pip install openpyxl
     - name: Test with RobotFramework
       run: |
-        robot -d result test_report
+        robot -d test_report test/information
     - name: Upload Robot Report Artifacts
       uses: actions/upload-artifact@v4
       with:
