@@ -6,3 +6,4 @@ ${user_birth_name}    //span[contains(@class, 'user-birth-name')]
 ${user_birth_date}    //span[contains(@class, 'user-birth-date')]
 ${cnn_selector}    //body//span
 ${vn_express_selector}    //body//a
+${coin_desk_selector}    //body//a

@@ -1,6 +1,5 @@
 import openpyxl
 from pathlib import Path
-data_path = Path(__file__).parent / "data" / "news.xlsx"
 import sys
 
 
@@ -16,7 +15,8 @@ class CustomExcelLibrary:
         """
         book = openpyxl.load_workbook(excel_path)
         # sheet = book.active
-        sheet = book[sheet_name]
+        sheet = book.create_sheet(title=sheet_name)
+        # sheet = book[sheet_name]
         for row_idx, data_list in enumerate(data_lists, start=1):
             for col_idx, value in enumerate(data_list, start=1):
                 sheet.cell(row=row_idx, column=col_idx, value=value)

@@ -4,15 +4,15 @@ Library    ExcelLibrary
 Library    OperatingSystem
 Library    String
 Library    Collections
-Library    RequestsLibrary
+#Library    RequestsLibrary
 Library    ../library/DateTimeLibrary.py
 Resource   ../page/Home_Page.resource
 Library    ../library/CustomExcelLibrary.py
 
 *** Variables ***
 ${DATA_DIR}    ${CURDIR}/../data
-${EXCEL_PATH}    ${DATA_DIR}/news.xlsx
-${CHART_PATH}    ${DATA_DIR}/chart.xlsx
+${COIN_DESK_PATH}    ${DATA_DIR}/coin_desk_data.xlsx
+${COIN_DESK_CHART_PATH}    ${DATA_DIR}/coin_desk_chart.xlsx
 
 
 *** Keywords ***
@@ -48,20 +48,27 @@ Get news
         Append To List    ${list_title}    ${name}
     END
     ${news}    Split list    ${list_title}    10
-    Write Data To Excel    ${EXCEL_PATH}    ${sheet_name}    ${news}
-    ${test}    Set Variable    ${EXCEL_PATH}
+    IF    '${sheet_name}' == 'coin_desk'
+        Set Global Variable     ${path_data}    ${COIN_DESK_PATH}
+        Set Global Variable     ${path_chart}    ${COIN_DESK_CHART_PATH}
+    ELSE
+        Log    Processing other sheet: ${sheet_name}
+    END
+    ${sheet_name_today}     Get Today
+    Write Data To Excel    ${path_data}    ${sheet_name_today}    ${news}
+    ${test}    Set Variable    ${path_data}
     Log    ${test}
 
-Count keyword
-    [Arguments]    ${keyword}
-    ${count}    Count Keyword    ${EXCEL_PATH}    ${keyword}
+#Count keyword
+#    [Arguments]    ${keyword}
+#    ${count}    Count Keyword    ${EXCEL_PATH}    ${keyword}
 
 Count common keywords
-    ${result}    Find Most Common Keywords       ${EXCEL_PATH}
+    ${result}    Find Most Common Keywords       ${path_data}
     Log    ${result}
      
 Export chart
-    ${result}    Find Most Common Keywords       ${EXCEL_PATH}
+    ${result}    Find Most Common Keywords       ${path_data}
     Log    ${result}
     ${sheet_name}    Get Today   
-    Save Keywords To Existing Excel    ${CHART_PATH}    ${result}    ${sheet_name}    
+    Save Keywords To Existing Excel    ${path_chart}    ${result}    ${sheet_name}

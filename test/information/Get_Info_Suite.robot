@@ -18,12 +18,11 @@ Test Teardown    Close Browser
 #    [Tags]    cnn
 #    Go to    ${cnn_url}
 #    Get news    ${cnn_selector}    cnn
-Get vn express
-    [Documentation]    get vn express
-    [Tags]    vn express
-#    Go to    ${cnn_url}
-#    Get news    ${cnn_selector}    cnn
-#    Count common keywords
+Get coin desk
+    [Documentation]    coin desk
+    [Tags]    coin desk
+    Go to    ${coin_desk}
+    Get news    ${coin_desk_selector}    coin_desk
     Export chart
 
 
