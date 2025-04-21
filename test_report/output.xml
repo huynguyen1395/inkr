@@ -1,148 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1 (Python 3.12.6 on darwin)" generated="2025-04-03T10:21:46.827599" rpa="false"
-       schemaversion="5">
-    <suite id="s1" name="Test" source="/Users/huynq/robot_framework/intranet-e2e-testing/test">
-        <suite id="s1-s1" name="Login" source="/Users/huynq/robot_framework/intranet-e2e-testing/test/login">
-            <suite id="s1-s1-s1" name="Login Suite"
-                   source="/Users/huynq/robot_framework/intranet-e2e-testing/test/login/Login_Suite.robot">
-                <test id="s1-s1-s1-t1" name="Login to intranet" line="10">
-                    <kw name="Create Driver" owner="Utility_Keyword" type="SETUP">
-                        <kw name="Evaluate" owner="BuiltIn">
-                            <msg time="2025-04-03T10:21:47.110162" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options
-                                object at 0x104fb9010&gt;
-                            </msg>
-                            <var>${options}</var>
-                            <arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
-                            <arg>sys</arg>
-                            <doc>Evaluates the given expression in Python and returns the result.</doc>
-                            <status status="PASS" start="2025-04-03T10:21:47.109965" elapsed="0.000219"/>
-                        </kw>
-                        <kw name="Call Method" owner="BuiltIn">
-                            <arg>${options}</arg>
-                            <arg>add_argument</arg>
-                            <arg>--disable-notifications</arg>
-                            <doc>Calls the named method of the given object with the provided arguments.</doc>
-                            <status status="PASS" start="2025-04-03T10:21:47.110266" elapsed="0.000074"/>
-                        </kw>
-                        <kw name="Call Method" owner="BuiltIn">
-                            <arg>${options}</arg>
-                            <arg>add_argument</arg>
-                            <arg>--disable-infobars</arg>
-                            <doc>Calls the named method of the given object with the provided arguments.</doc>
-                            <status status="PASS" start="2025-04-03T10:21:47.110396" elapsed="0.000088"/>
-                        </kw>
-                        <kw name="Call Method" owner="BuiltIn">
-                            <arg>${options}</arg>
-                            <arg>add_argument</arg>
-                            <arg>--disable-extensions</arg>
-                            <doc>Calls the named method of the given object with the provided arguments.</doc>
-                            <status status="PASS" start="2025-04-03T10:21:47.110551" elapsed="0.000057"/>
-                        </kw>
-                        <kw name="Call Method" owner="BuiltIn">
-                            <arg>${options}</arg>
-                            <arg>add_argument</arg>
-                            <arg>--no-sandbox</arg>
-                            <doc>Calls the named method of the given object with the provided arguments.</doc>
-                            <status status="PASS" start="2025-04-03T10:21:47.110661" elapsed="0.000054"/>
-                        </kw>
-                        <kw name="Call Method" owner="BuiltIn">
-                            <arg>${options}</arg>
-                            <arg>add_argument</arg>
-                            <arg>--disable-dev-shm-usage</arg>
-                            <doc>Calls the named method of the given object with the provided arguments.</doc>
-                            <status status="PASS" start="2025-04-03T10:21:47.110763" elapsed="0.000046"/>
-                        </kw>
-                        <kw name="Create Webdriver" owner="SeleniumLibrary">
-                            <msg time="2025-04-03T10:21:47.110963" level="INFO">Creating an instance of the Chrome
-                                WebDriver.
-                            </msg>
-                            <arg>Chrome</arg>
-                            <arg>options=${options}</arg>
-                            <doc>Creates an instance of Selenium WebDriver.</doc>
-                            <status status="PASS" start="2025-04-03T10:21:47.110865" elapsed="7.802381"/>
-                        </kw>
-                        <status status="PASS" start="2025-04-03T10:21:47.109454" elapsed="7.806842"/>
-                    </kw>
-                    <kw name="Navigate to page" owner="Utility_Keyword">
-                        <kw name="Go To" owner="SeleniumLibrary">
-                            <msg time="2025-04-03T10:21:54.917696" level="INFO">Opening url
-                                'https://intranet-staging.younetco.com/'
-                            </msg>
-                            <arg>${url}</arg>
-                            <doc>Navigates the current browser window to the provided ``url``.</doc>
-                            <status status="PASS" start="2025-04-03T10:21:54.917356" elapsed="0.297444"/>
-                        </kw>
-                        <arg>${login_page}</arg>
-                        <status status="PASS" start="2025-04-03T10:21:54.916738" elapsed="0.298223"/>
-                    </kw>
-                    <kw name="Login with username and password" owner="Utility_Keyword">
-                        <kw name="Input Text" owner="SeleniumLibrary">
-                            <msg time="2025-04-03T10:21:55.215839" level="INFO">Typing text 'tutna2' into text field
-                                '//input[@name='USER_LOGIN']'.
-                            </msg>
-                            <arg>${user_name_selector}</arg>
-                            <arg>${username}</arg>
-                            <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-                            <status status="PASS" start="2025-04-03T10:21:55.215387" elapsed="0.124016"/>
-                        </kw>
-                        <kw name="Sleep" owner="BuiltIn">
-                            <msg time="2025-04-03T10:21:56.344581" level="INFO">Slept 1 second.</msg>
-                            <arg>1</arg>
-                            <doc>Pauses the test executed for the given time.</doc>
-                            <status status="PASS" start="2025-04-03T10:21:55.343550" elapsed="1.001235"/>
-                        </kw>
-                        <kw name="Input Text" owner="SeleniumLibrary">
-                            <msg time="2025-04-03T10:21:56.345808" level="INFO">Typing text 'def@456' into text field
-                                '//input[@name='USER_PASSWORD']'.
-                            </msg>
-                            <arg>${password_selector}</arg>
-                            <arg>${password}</arg>
-                            <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-                            <status status="PASS" start="2025-04-03T10:21:56.345120" elapsed="0.044394"/>
-                        </kw>
-                        <kw name="Sleep" owner="BuiltIn">
-                            <msg time="2025-04-03T10:21:57.391848" level="INFO">Slept 1 second.</msg>
-                            <arg>1</arg>
-                            <doc>Pauses the test executed for the given time.</doc>
-                            <status status="PASS" start="2025-04-03T10:21:56.389689" elapsed="1.002412"/>
-                        </kw>
-                        <kw name="Click Button" owner="SeleniumLibrary">
-                            <msg time="2025-04-03T10:21:57.392947" level="INFO">Clicking button
-                                '//input[@type='submit']'.
-                            </msg>
-                            <arg>${submit_button_selector}</arg>
-                            <doc>Clicks the button identified by ``locator``.</doc>
-                            <status status="PASS" start="2025-04-03T10:21:57.392512" elapsed="0.037975"/>
-                        </kw>
-                        <status status="PASS" start="2025-04-03T10:21:55.215191" elapsed="2.215372"/>
-                    </kw>
-                    <kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
-                        <doc>Closes the current browser.</doc>
-                        <status status="PASS" start="2025-04-03T10:21:57.430783" elapsed="0.085247"/>
-                    </kw>
-                    <doc>login to intranet</doc>
-                    <tag>intranet</tag>
-                    <status status="PASS" start="2025-04-03T10:21:47.108880" elapsed="10.407266"/>
-                </test>
-                <status status="PASS" start="2025-04-03T10:21:46.858840" elapsed="10.658659"/>
-            </suite>
-            <status status="PASS" start="2025-04-03T10:21:46.858432" elapsed="10.659562"/>
-        </suite>
-        <status status="PASS" start="2025-04-03T10:21:46.828500" elapsed="10.689937"/>
-    </suite>
-    <statistics>
-        <total>
-            <stat pass="1" fail="0" skip="0">All Tests</stat>
-        </total>
-        <tag>
-            <stat pass="1" fail="0" skip="0">intranet</stat>
-        </tag>
-        <suite>
-            <stat pass="1" fail="0" skip="0" id="s1" name="Test">Test</stat>
-            <stat pass="1" fail="0" skip="0" id="s1-s1" name="Login">Test.Login</stat>
-            <stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Login Suite">Test.Login.Login Suite</stat>
-        </suite>
-    </statistics>
-    <errors>
-    </errors>
+<robot generator="Robot 7.1 (Python 3.12.7 on win32)" generated="2025-04-21T20:44:42.088847" rpa="false" schemaversion="5">
+<suite id="s1" name="Information" source="C:\Users\Johny Eren\inkr\test\information">
+<suite id="s1-s1" name="Get Info Suite" source="C:\Users\Johny Eren\inkr\test\information\Get_Info_Suite.robot">
+<test id="s1-s1-t1" name="Get vn express" line="21">
+<kw name="Create driver" owner="Utility_Step" type="SETUP">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-04-21T20:44:42.713795" level="INFO">${options} = &lt;selenium.webdriver.chrome.options.Options object at 0x000001AE320E5370&gt;</msg>
+<var>${options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-04-21T20:44:42.713795" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-notifications</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-04-21T20:44:42.713795" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-infobars</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-04-21T20:44:42.713795" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-extensions</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-04-21T20:44:42.713795" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-04-21T20:44:42.713795" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-04-21T20:44:42.713795" elapsed="0.000000"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${options}</arg>
+<arg>add_argument</arg>
+<arg>--disable-dev-shm-usage</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2025-04-21T20:44:42.713795" elapsed="0.000000"/>
+</kw>
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2025-04-21T20:44:42.713795" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<arg>Chrome</arg>
+<arg>options=${options}</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="PASS" start="2025-04-21T20:44:42.713795" elapsed="1.511637"/>
+</kw>
+<status status="PASS" start="2025-04-21T20:44:42.713795" elapsed="1.511637"/>
+</kw>
+<kw name="Export chart" owner="Home_Step">
+<kw name="Find Most Common Keywords" owner="CustomExcelLibrary">
+<msg time="2025-04-21T20:44:44.237759" level="INFO">${result} = [('analysis', 9), ('trump', 9), ('years', 7), ('gallery', 6), ('party', 4), ('trade', 4), ('how', 4), ('war', 4), ('experts', 4), ('after', 4), ('may', 4), ('now', 4), ('new', 4), ('first', 4), ('he',...</msg>
+<var>${result}</var>
+<arg>${EXCEL_PATH}</arg>
+<doc>Finds the most frequently appearing keywords in an Excel file.</doc>
+<status status="PASS" start="2025-04-21T20:44:44.225432" elapsed="0.012327"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-04-21T20:44:44.237759" level="INFO">[('analysis', 9), ('trump', 9), ('years', 7), ('gallery', 6), ('party', 4), ('trade', 4), ('how', 4), ('war', 4), ('experts', 4), ('after', 4), ('may', 4), ('now', 4), ('new', 4), ('first', 4), ('he', 4), ('canada', 3), ('democratic', 3), ('hong', 3), ('global', 3), ('trump’s', 3), ('signal', 3), ('news', 3), ('win', 3), ('over', 3), ('weekend', 3), ('research', 3), ('set', 3), ('michelle', 3), ('williams', 3), ('supreme', 3), ('court', 3), ('federal', 2), ('elections', 2), ('easter', 2), ('kong', 2), ('shohei', 2), ('ohtani', 2), ('dhl', 2), ('shipments', 2), ('‘pride', 2), ('&amp;', 2), ('prejudice’', 2), ('aryna', 2), ('sabalenka', 2), ('beijing', 2), ('china', 2), ('become', 2), ('private', 2), ('chat', 2), ('reacts', 2), ('military', 2), ('plans', 2), ('administration', 2), ('growing', 2), ('own', 2), ('gaza', 2), ('study', 2), ('finds', 2), ('photo', 2), ('mark', 2), ('during', 2), ('world’s', 2), ('1:30', 2), ('under', 2), ('here’s', 2), ('dissolution', 2), ('home', 2), ('tariffs', 2), ('he’s', 2), ('why', 2), ('millions', 2), ('tired', 2), ('living', 2), ('make', 2), ('weekdays', 2), ('fulfilling', 2), ('according', 2), ('psychology', 2), ('lion', 2), ('14-year-old', 2), ('obamacare', 2), ('suggests', 2), ('wife', 2), ('water', 2), ('advance', 2), ('its', 2), ('capital', 2), ('wants', 2), ('fun', 2), ('chinese', 2), ('powell', 2), ('look', 2), ('week', 2), ('golf', 2), ('los', 2), ('angeles', 2), ('world', 2), ('rfk', 2), ('monopoly', 2), ('trial', 2)]</msg>
+<arg>${result}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-04-21T20:44:44.237759" elapsed="0.000000"/>
+</kw>
+<kw name="Get Today" owner="DateTimeLibrary">
+<msg time="2025-04-21T20:44:44.237759" level="INFO">${sheet_name} = 21-04-2025</msg>
+<var>${sheet_name}</var>
+<status status="PASS" start="2025-04-21T20:44:44.237759" elapsed="0.000000"/>
+</kw>
+<kw name="Save Keywords To Existing Excel" owner="CustomExcelLibrary">
+<msg time="2025-04-21T20:44:44.257219" level="INFO">Debug message 21-04-2025 C:\Users\Johny Eren\inkr\step/../data/chart.xlsx</msg>
+<arg>${CHART_PATH}</arg>
+<arg>${result}</arg>
+<arg>${sheet_name}</arg>
+<doc>Saves the top keywords to a new worksheet in an existing Excel file with formatting.</doc>
+<status status="PASS" start="2025-04-21T20:44:44.237759" elapsed="0.019460"/>
+</kw>
+<status status="PASS" start="2025-04-21T20:44:44.225432" elapsed="0.032783"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-04-21T20:44:44.258215" elapsed="2.123681"/>
+</kw>
+<doc>get vn express</doc>
+<tag>vn express</tag>
+<status status="PASS" start="2025-04-21T20:44:42.711584" elapsed="3.670312"/>
+</test>
+<status status="PASS" start="2025-04-21T20:44:42.106793" elapsed="4.275103"/>
+</suite>
+<status status="PASS" start="2025-04-21T20:44:42.089852" elapsed="4.292044"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">vn express</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Information">Information</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Get Info Suite">Information.Get Info Suite</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
 </robot>
