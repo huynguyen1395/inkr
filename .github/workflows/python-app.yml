@@ -32,6 +32,12 @@ jobs:
         pip install robotframework-seleniumlibrary
         pip install robotframework-excellib
         pip install webdriver-manager
+        pip install openpyxl
     - name: Test with RobotFramework
       run: |
-        robot -d result test  
+        robot -d result test_report
+    - name: Upload Robot Report Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: robotframework-report
+        path: test_report/    
