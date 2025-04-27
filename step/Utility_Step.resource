@@ -49,16 +49,7 @@ Navigate to create event page
     Click Element    ${create_event}
     
     
-Fill out poll form
-    [Arguments]    ${question1_answer}    ${question2_answer}    ${question3_answer}
-    Input Text    ${question1_selector}    ${question1_answer}
-    Sleep    1
-    Input Text    ${question2_selector}    ${question2_answer}
-    Sleep    1
-    Input Text    ${question3_selector}    ${question3_answer}
-    Sleep    1
-    Click Button    ${submit_poll_button_selector}
-    Sleep    2
+
 
         
 

@@ -15,8 +15,10 @@ class DateTimeLibrary:
 
     @staticmethod
     def get_today():
+        chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+        random_string = ''.join(random.choice(chars) for _ in range(6))
         today = datetime.date.today()
-        return today.strftime("%d-%m-%Y")
+        return today.strftime("%d-%m-%Y") + "-" + random_string
 
     @staticmethod
     def get_schedule(value):

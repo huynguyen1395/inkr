@@ -4,7 +4,7 @@ Library    ExcelLibrary
 Library    OperatingSystem
 Library    String
 Library    Collections
-#Library    RequestsLibrary
+Library    RequestsLibrary
 Library    ../library/DateTimeLibrary.py
 Resource   ../page/Home_Page.resource
 Library    ../library/CustomExcelLibrary.py
@@ -13,7 +13,8 @@ Library    ../library/CustomExcelLibrary.py
 ${DATA_DIR}    ${CURDIR}/../data
 ${COIN_DESK_PATH}    ${DATA_DIR}/coin_desk_data.xlsx
 ${COIN_DESK_CHART_PATH}    ${DATA_DIR}/coin_desk_chart.xlsx
-
+${COIN_MARKET}       ${DATA_DIR}/coin_market_data.xlsx
+${COIN_MARKET_CHART}       ${DATA_DIR}/coin_market_data_chart.xlsx
 
 *** Keywords ***
 Get birthday
@@ -70,5 +71,15 @@ Count common keywords
 Export chart
     ${result}    Find Most Common Keywords       ${path_data}
     Log    ${result}
-    ${sheet_name}    Get Today   
+    ${sheet_name}    Get Today
     Save Keywords To Existing Excel    ${path_chart}    ${result}    ${sheet_name}
+
+Get api and write data
+    ${headers}       Create Dictionary    Accepts    application/json   X-CMC_PRO_API_KEY   d892d007-396a-49ba-afef-e82727e5d75a
+    ${params}   Create Dictionary    start  1   limit   100  convert     USD
+    ${response}    GET  https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest     headers=${headers}      params=${params}    expected_status=200
+    ${data}     Get From Dictionary    ${response.json()}    data
+    ${sheet_name}    Get Today
+    Write Api Response To Excel    ${COIN_MARKET}    ${sheet_name}    ${data}
+    Clean Coin Market Data    ${COIN_MARKET}
+    Generate Coin Market Charts    ${COIN_MARKET}    ${COIN_MARKET_CHART}   ${sheet_name}

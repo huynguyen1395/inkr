@@ -18,13 +18,17 @@ Test Teardown    Close Browser
 #    [Tags]    cnn
 #    Go to    ${cnn_url}
 #    Get news    ${cnn_selector}    cnn
+
 Get coin desk
     [Documentation]    coin desk
     [Tags]    coin desk
     Go to    ${coin_desk}
     Get news    ${coin_desk_selector}    coin_desk
     Export chart
-
+Get api market
+    [Documentation]    coin market
+    [Tags]    coin market
+    Get api and write data
 
 
 #Login to intranet 2
