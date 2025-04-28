@@ -33,6 +33,7 @@ jobs:
         pip install robotframework-excellib
         pip install webdriver-manager
         pip install openpyxl
+        pip install robotframework-requests
     - name: Test with RobotFramework
       run: |
         robot -d test_report test/information
