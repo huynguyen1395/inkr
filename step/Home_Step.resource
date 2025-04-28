@@ -81,5 +81,5 @@ Get api and write data
     ${data}     Get From Dictionary    ${response.json()}    data
     ${sheet_name}    Get Today
     Write Api Response To Excel    ${COIN_MARKET}    ${sheet_name}    ${data}
-    Clean Coin Market Data    ${COIN_MARKET}
+    Clean Coin Market Data    ${COIN_MARKET}    ${sheet_name}
     Generate Coin Market Charts    ${COIN_MARKET}    ${COIN_MARKET_CHART}   ${sheet_name}
