@@ -401,16 +401,16 @@ class CustomExcelLibrary:
                 workbook = openpyxl.Workbook()
 
             # Check if the sheet already exists
-            if sheet_name in workbook.sheetnames:
-                # Use the existing sheet
-                worksheet = workbook[sheet_name]
-                # Clear existing content
-                for row in worksheet.rows:
-                    for cell in row:
-                        cell.value = None
-            else:
+            # if sheet_name in workbook.sheetnames:
+            #     # Use the existing sheet
+            #     worksheet = workbook[sheet_name]
+            #     # Clear existing content
+            #     for row in worksheet.rows:
+            #         for cell in row:
+            #             cell.value = None
+            # else:
                 # Create a new worksheet
-                worksheet = workbook.create_sheet(title=sheet_name)
+            worksheet = workbook.create_sheet(title=sheet_name)
 
             # Define styles
             header_font = Font(bold=True, size=12)
